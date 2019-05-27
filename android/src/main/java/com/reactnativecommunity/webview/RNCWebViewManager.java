@@ -27,6 +27,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.webkit.ConsoleMessage;
@@ -38,6 +39,7 @@ import android.webkit.URLUtil;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -75,6 +77,8 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import ren.yale.android.cachewebviewlib.WebViewCacheInterceptorInst;
 
 /**
  * Manages instances of {@link WebView}
@@ -214,6 +218,18 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
 
     public void setUrlPrefixesForDefaultIntent(ReadableArray specialUrls) {
       mUrlPrefixesForDefaultIntent = specialUrls;
+    }
+
+    @android.support.annotation.Nullable
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+      return WebViewCacheInterceptorInst.getInstance().interceptRequest(request);
+    }
+
+    @android.support.annotation.Nullable
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+     return WebViewCacheInterceptorInst.getInstance().interceptRequest(url);
     }
   }
 

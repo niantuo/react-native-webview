@@ -52,6 +52,7 @@ repositories {
   def found = false
   def defaultDir = null
   def androidSourcesName = 'React Native sources'
+  google()
 
   if (rootProject.ext.has('reactNativeAndroidRoot')) {
     defaultDir = rootProject.ext.get('reactNativeAndroidRoot')
@@ -119,4 +120,5 @@ dependencies {
   //noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation 'ren.yale.android:cachewebviewlib:2.1.8'
 }

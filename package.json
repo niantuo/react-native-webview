@@ -1,6 +1,6 @@
 {
-  "name": "react-native-webview",
-  "description": "React Native WebView component for iOS, Android, and Windows 10 (coming soon)",
+  "name": "react-native-cache-webview",
+  "description": "React Native WebView component for iOS, Android, and Windows 10 (coming soon),Cache only support Android",
   "main": "index.js",
   "typings": "typings/index.d.ts",
   "author": "Jamon Holmgren <jamon@infinite.red>",
@@ -9,7 +9,7 @@
   ],
   "license": "MIT",
   "version": "3.0.2",
-  "homepage": "https://github.com/react-native-community/react-native-webview#readme",
+  "homepage": "https://github.com/niantuo/react-native-webview.git#readme",
   "scripts": {
     "test:ios:flow": "flow check",
     "test:android:flow": "flow check --flowconfig-name .flowconfig.android",
